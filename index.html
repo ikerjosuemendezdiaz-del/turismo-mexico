@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Mictlán Go: guía para descubrir celebraciones, ofrendas y desfiles del Día de Muertos en México.">
+<title>Mictlán Go | Turismo de Día de Muertos</title>
+<style>
+:root{--bg:#100b24;--panel:#211542;--panel2:#30205a;--purple:#7045b7;--orange:#ff9e32;--cream:#fff2dc;--muted:#c9b9e5;--line:#493477}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at top,#2a174b 0,#100b24 58%);color:var(--cream);font-family:Arial,Helvetica,sans-serif;line-height:1.5}
+header{position:sticky;top:0;z-index:5;background:#160f2bed;border-bottom:1px solid var(--line);padding:13px 5%;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;backdrop-filter:blur(10px)}
+.brand{font-size:1.3rem;font-weight:900;color:var(--orange)}.brand span{color:#d9b7ff}
+nav{display:flex;gap:8px;flex-wrap:wrap}nav a{color:var(--cream);text-decoration:none;padding:8px 12px;border-radius:20px;font-weight:700;font-size:.92rem}nav a:hover,nav a:focus{background:var(--panel2)}
+.hero{padding:54px 5% 38px;text-align:center;max-width:1000px;margin:auto}.eyebrow{color:var(--orange);font-weight:800;letter-spacing:2px;text-transform:uppercase;font-size:.8rem}.hero h1{font-size:clamp(2.3rem,6vw,4.5rem);line-height:1.05;margin:12px 0}.hero h1 span{color:var(--orange)}.hero p{max-width:700px;margin:0 auto;color:var(--muted);font-size:1.08rem}
+.tabs{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:25px 0}.tabs a,.btn{display:inline-block;text-decoration:none;border:0;border-radius:12px;padding:11px 17px;font-weight:800;cursor:pointer}.tabs a,.btn.primary{background:var(--orange);color:#281638}.btn.secondary{background:var(--panel2);color:var(--cream);border:1px solid var(--line)}
+.wrap{max-width:1180px;margin:auto;padding:0 5% 55px}.section-head{margin:0 0 20px}.section-head h2{margin:0;color:var(--orange);font-size:1.8rem}.section-head p{margin:5px 0;color:var(--muted)}
+.layout{display:grid;grid-template-columns:1.1fr .9fr;gap:20px}.panel{background:linear-gradient(145deg,#2b1c50,#1c1238);border:1px solid var(--line);border-radius:20px;padding:20px;box-shadow:0 12px 30px #0004}.map{min-height:300px;position:relative;overflow:hidden;background-color:#211b43;background-image:linear-gradient(30deg,transparent 46%,#4a3a72 47%,#4a3a72 49%,transparent 50%),linear-gradient(120deg,transparent 46%,#4a3a72 47%,#4a3a72 49%,transparent 50%),linear-gradient(0deg,transparent 46%,#38295e 47%,#38295e 49%,transparent 50%);background-size:85px 85px;border-radius:15px}
+.map:after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 30% 35%,#ff9e3233,transparent 15%),radial-gradient(circle at 70% 65%,#b68cff22,transparent 20%);pointer-events:none}
+.pin{position:absolute;z-index:1;border:0;background:var(--orange);color:#24143b;border-radius:30px;padding:8px 10px;font-weight:900;box-shadow:0 4px 15px #0006;cursor:pointer}.pin:hover{transform:scale(1.08)}.p1{left:18%;top:24%}.p2{left:53%;top:38%}.p3{left:72%;top:18%}.p4{left:36%;top:70%}
+.search{display:flex;gap:8px;margin:14px 0}.search input,.form input,.form select{width:100%;min-width:0;background:#17102f;color:var(--cream);border:1px solid var(--line);border-radius:10px;padding:12px;font:inherit}.places{display:grid;gap:10px}.place{display:flex;justify-content:space-between;gap:10px;align-items:center;background:#38255f;padding:12px;border-radius:12px}.place strong{display:block}.place small{color:var(--muted)}.pill{background:#7045b7;color:white;padding:4px 9px;border-radius:20px;font-size:.75rem;white-space:nowrap}
+.qrbox{display:grid;place-items:center;min-height:175px;background:#17102f;border:1px dashed #9b75d5;border-radius:15px;margin:12px 0}.qr{display:grid;grid-template-columns:repeat(9,9px);gap:2px;padding:10px;background:white;border-radius:8px}.qr i{width:9px;height:9px;background:#211542}.qr i:nth-child(3n),.qr i:nth-child(7n+1),.qr i:nth-child(11n){background:white}
+.form{display:grid;gap:10px}.result{background:#3a2861;padding:14px;border-radius:12px;margin-top:10px;min-height:65px;color:var(--cream)}.event-list{display:grid;gap:12px}.event{display:grid;grid-template-columns:72px 1fr;gap:14px;background:#2b1c50;border:1px solid var(--line);border-radius:14px;padding:13px;align-items:center}.date{background:var(--orange);color:#291638;text-align:center;border-radius:10px;padding:8px;font-weight:900}.date b{display:block;font-size:1.65rem;line-height:1.1}.event h3{margin:0 0 3px}.event p{margin:0;color:var(--muted);font-size:.9rem}
+.note{margin-top:18px;color:var(--muted);font-size:.85rem}.feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:20px}.feature{background:#211542;border:1px solid var(--line);padding:17px;border-radius:15px}.feature b{color:var(--orange);display:block;margin-bottom:5px}
+footer{text-align:center;padding:28px 5%;background:#0b0719;color:var(--muted);border-top:1px solid var(--line)}footer strong{color:var(--orange)}
+@media(max-width:760px){.layout{grid-template-columns:1fr}.feature-grid{grid-template-columns:1fr}.hero{padding-top:40px}.search{flex-direction:column}.place{align-items:flex-start}}
+</style>
+</head>
+<body>
+<header><div class="brand">🌼 Mictlán <span>Go</span></div><nav><a href="#mapa">Mapa</a><a href="#traductor">Traductor</a><a href="#eventos">Desfiles</a><a href="#consejos">Consejos</a></nav></header>
+<main>
+<section class="hero">
+<div class="eyebrow">Turismo · Cultura · Tradición</div>
+<h1>Descubre el Día de <span>Muertos</span></h1>
+<p>Encuentra ofrendas, conoce el significado de las tradiciones y consulta celebraciones para vivir esta hermosa fiesta mexicana con respeto.</p>
+<div class="tabs"><a href="#mapa">📍 Explorar mapa</a><a href="#eventos" style="background:#493477;color:#fff">📅 Ver eventos</a></div>
+</section>
+<div class="wrap">
+<section id="mapa">
+<div class="section-head"><h2>📍 Mapa de ofrendas</h2><p>Explora algunos lugares conocidos por sus celebraciones de Día de Muertos.</p></div>
+<div class="layout">
+<div class="panel"><div class="map" aria-label="Mapa ilustrativo con puntos de interés"><button class="pin p1" onclick="showPlace('Pátzcuaro, Michoacán')">📍 1</button><button class="pin p2" onclick="showPlace('Mixquic, Ciudad de México')">📍 2</button><button class="pin p3" onclick="showPlace('Oaxaca de Juárez, Oaxaca')">📍 3</button><button class="pin p4" onclick="showPlace('Aguascalientes, Aguascalientes')">📍 4</button></div><p class="note">Mapa ilustrativo, no es un mapa GPS. Selecciona un marcador para ver el destino.</p><div class="result" id="mapResult">Selecciona un marcador para conocer el lugar.</div></div>
+<div class="panel"><h3 style="margin-top:0;color:var(--orange)">Lugares destacados</h3><div class="search"><input id="placeSearch" placeholder="Buscar un destino..." aria-label="Buscar destino"><button class="btn primary" onclick="filterPlaces()">Buscar</button></div><div class="places" id="places">
+<div class="place" data-name="patzcuaro michoacan"><div><strong>Pátzcuaro, Michoacán</strong><small>Tradiciones purépechas y celebraciones en la región</small></div><span class="pill">Cultura</span></div>
+<div class="place" data-name="mixquic ciudad de mexico"><div><strong>Mixquic, CDMX</strong><small>Altares y actividades tradicionales</small></div><span class="pill">Tradición</span></div>
+<div class="place" data-name="oaxaca oaxaca"><div><strong>Oaxaca de Juárez, Oaxaca</strong><small>Comparsas, música y altares</small></div><span class="pill">Fiesta</span></div>
+<div class="place" data-name="aguascalientes aguascalientes"><div><strong>Aguascalientes</strong><small>Festival de las Calaveras</small></div><span class="pill">Festival</span></div>
+</div></div>
+</div>
+</section>
+
+<section id="traductor" style="margin-top:45px">
+<div class="section-head"><h2>🔎 Traductor de ofrendas</h2><p>Aprende el significado de algunos elementos que puedes encontrar en una ofrenda.</p></div>
+<div class="layout">
+<div class="panel"><h3 style="margin-top:0">Explora un elemento</h3><div class="qrbox"><div class="qr" aria-label="Dibujo decorativo de código QR"><script>for(let i=0;i<81;i++)document.write('<i></i>')</script></div></div><p class="note">Demostración visual: esta página no escanea códigos QR. Elige un elemento en el selector para conocer su significado.</p></div>
+<div class="panel form"><label for="element">Elemento de la ofrenda</label><select id="element"><option value="">Selecciona uno...</option><option value="cempasuchil">Flor de cempasúchil</option><option value="vela">Velas</option><option value="pan">Pan de muerto</option><option value="agua">Agua</option><option value="foto">Fotografía</option></select><button class="btn primary" onclick="translateElement()">Conocer significado</button><div class="result" id="translation" aria-live="polite">Aquí aparecerá una explicación sencilla.</div></div>
+</div>
+</section>
+
+<section id="eventos" style="margin-top:45px">
+<div class="section-head"><h2>📅 Calendario de desfiles y festivales</h2><p>Ejemplos de celebraciones que puedes investigar. Las fechas y actividades cambian cada año.</p></div>
+<div class="panel event-list">
+<div class="event"><div class="date">NOV<b>01</b></div><div><h3>Celebraciones de Día de Muertos</h3><p>En distintas comunidades de México · Consulta el programa local</p></div></div>
+<div class="event"><div class="date">NOV<b>02</b></div><div><h3>Conmemoración de los Fieles Difuntos</h3><p>Visitas a panteones y reuniones familiares en muchas regiones</p></div></div>
+<div class="event"><div class="date">OCT<b>–NOV</b></div><div><h3>Festivales y actividades culturales</h3><p>Revisa las fechas oficiales de cada ciudad antes de organizar tu viaje</p></div></div>
+</div>
+<p class="note">Este calendario es orientativo y no anuncia eventos confirmados para una fecha específica.</p>
+</section>
+
+<section id="consejos" style="margin-top:45px">
+<div class="section-head"><h2>💡 Consejos para turistas</h2><p>Disfruta las tradiciones con preparación y respeto.</p></div>
+<div class="feature-grid">
+<div class="feature"><b>🧡 Respeta las tradiciones</b>Pregunta antes de tomar fotografías en ceremonias o cementerios.</div>
+<div class="feature"><b>🚌 Planea tu transporte</b>Consulta rutas, horarios y cierres de calles con anticipación.</div>
+<div class="feature"><b>📌 Confirma la información</b>Revisa páginas oficiales de turismo para horarios y actividades actualizadas.</div>
+</div>
+</section>
+</div>
+</main>
+<footer><strong>🌼 Mictlán Go</strong><br>Una ventana a las tradiciones de México.<br><small>Proyecto escolar · Sitio demostrativo de turismo cultural</small></footer>
+<script>
+function showPlace(name){document.getElementById('mapResult').textContent='Destino seleccionado: '+name+'. Consulta la información turística local para conocer actividades, horarios y cómo llegar.'}
+function filterPlaces(){const q=document.getElementById('placeSearch').value.toLowerCase().trim();document.querySelectorAll('.place').forEach(p=>p.style.display=p.dataset.name.includes(q)?'flex':'none')}
+function translateElement(){const v=document.getElementById('element').value;const meanings={cempasuchil:'La flor de cempasúchil, por su color y aroma, se usa tradicionalmente para guiar simbólicamente a las almas.',vela:'Las velas representan la luz que acompaña y guía a las almas en su visita.',pan:'El pan de muerto es un alimento tradicional que se coloca en muchas ofrendas y se comparte en familia.',agua:'El agua se ofrece para aliviar la sed del camino, según la tradición.',foto:'La fotografía recuerda a las personas fallecidas a quienes se dedica la ofrenda.'};document.getElementById('translation').textContent=meanings[v]||'Selecciona un elemento para conocer su significado.'}
+</script>
+</body>
+</html>
